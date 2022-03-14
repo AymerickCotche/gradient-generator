@@ -1,5 +1,12 @@
 // == Imports
 import { randomHexColor, generateSpanColor } from './utils';
+import {
+  changeDirectionToRight,
+  changeDirectionToLeft,
+  randFirst,
+  randLast,
+  changeDirection
+} from './actions';
 import store from './store';
 
 // == Rendu dans le DOM
@@ -40,33 +47,53 @@ store.subscribe(renderColors);
 // == Controls
 document.getElementById('randAll')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'RANDOM_FIRST_COLOR', newFirstColor: randomHexColor() });
-    store.dispatch({ type: 'RANDOM_LAST_COLOR', newLastColor: randomHexColor() });
+    store.dispatch(randFirst());
+    store.dispatch(randLast());
   });
 
 document.getElementById('randFirst')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'RANDOM_FIRST_COLOR', newFirstColor: randomHexColor() });
+    store.dispatch(randFirst());
   });
 
 document.getElementById('randLast')
   .addEventListener('click', () => {
-    store.dispatch({ type: 'RANDOM_LAST_COLOR', newLastColor: randomHexColor() });
+    store.dispatch(randLast());
   });
 
 document.getElementById('toLeft')
   .addEventListener('click', () => {
-    // const state = store.getState();
-    // state.direction = '270deg';
-    store.dispatch({
-      type: 'CHANGE_DIRECTION_TO_LEFT',
-    });
+    store.dispatch(changeDirectionToLeft());
   });
 
 document.getElementById('toRight')
   .addEventListener('click', () => {
-    // state.direction = '270deg';
-    store.dispatch({
-      type: 'CHANGE_DIRECTION_TO_RIGHT',
-    });
+    store.dispatch(changeDirectionToRight());
+  });
+document.getElementById('toTop')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('top'));
+  });
+
+document.getElementById('toBottom')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('bottom'));
+  });
+document.getElementById('toTopLeft')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('topLeft'));
+  });
+
+document.getElementById('toTopRight')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('topRight'));
+  });
+document.getElementById('toBottomLeft')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('bottomLeft'));
+  });
+
+document.getElementById('toBottomRight')
+  .addEventListener('click', () => {
+    store.dispatch(changeDirection('bottomRight'));
   });
