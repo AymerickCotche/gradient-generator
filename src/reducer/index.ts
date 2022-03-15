@@ -1,6 +1,11 @@
-import { randomHexColor, generateSpanColor } from '../utils';
+interface CounterState {
+  firstColor: string,
+  lastColor: string,
+  direction: string,
+  nbColors: number
+}
 
-const initialState = {
+const initialState: CounterState = {
   firstColor: '#e367a4',
   lastColor: '#48b1f3',
   direction: '90deg',
@@ -11,27 +16,13 @@ const reducer = (
   state = initialState,
   action:{ type: string,
     newFirstColor?: string,
-    newLastColor?: string
+    newLastColor?: string,
+    direction?: string
   },
 ) => {
-  console.log('je passe');
   switch (action.type) {
-    case 'CHANGE_DIRECTION_TO_LEFT':
-      return { ...state, direction: '270deg' };
-    case 'CHANGE_DIRECTION_TO_RIGHT':
-      return { ...state, direction: '90deg' };
-    case 'CHANGE_DIRECTION_TO_TOP':
-      return { ...state, direction: '0deg' };
-    case 'CHANGE_DIRECTION_TO_BOTTOM':
-      return { ...state, direction: '180deg' };
-    case 'CHANGE_DIRECTION_TO_TOPLEFT':
-      return { ...state, direction: '315deg' };
-    case 'CHANGE_DIRECTION_TO_TOPRIGHT':
-      return { ...state, direction: '45deg' };
-    case 'CHANGE_DIRECTION_TO_BOTTOMLEFT':
-      return { ...state, direction: '225deg' };
-    case 'CHANGE_DIRECTION_TO_BOTTOMRIGHT':
-      return { ...state, direction: '135deg' };
+    case 'CHANGE_DIRECTION':
+      return { ...state, direction: action.direction };
     case 'RANDOM_FIRST_COLOR':
       return { ...state, firstColor: action.newFirstColor, nbColors: state.nbColors + 1 };
     case 'RANDOM_LAST_COLOR':

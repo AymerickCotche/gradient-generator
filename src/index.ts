@@ -1,11 +1,9 @@
 // == Imports
-import { randomHexColor, generateSpanColor } from './utils';
+import { generateSpanColor } from './utils';
 import {
-  changeDirectionToRight,
-  changeDirectionToLeft,
   randFirst,
   randLast,
-  changeDirection
+  changeDirection,
 } from './actions';
 import store from './store';
 
@@ -63,37 +61,37 @@ document.getElementById('randLast')
 
 document.getElementById('toLeft')
   .addEventListener('click', () => {
-    store.dispatch(changeDirectionToLeft());
+    store.dispatch(changeDirection('270deg'));
   });
 
 document.getElementById('toRight')
   .addEventListener('click', () => {
-    store.dispatch(changeDirectionToRight());
+    store.dispatch(changeDirection('90deg'));
   });
 document.getElementById('toTop')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('top'));
+    store.dispatch(changeDirection('0deg'));
   });
 
 document.getElementById('toBottom')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('bottom'));
+    store.dispatch(changeDirection('180deg'));
   });
 document.getElementById('toTopLeft')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('topLeft'));
+    store.dispatch(changeDirection('315deg'));
   });
 
 document.getElementById('toTopRight')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('topRight'));
+    store.dispatch(changeDirection('45deg'));
   });
 document.getElementById('toBottomLeft')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('bottomLeft'));
+    store.dispatch(changeDirection('225deg'));
   });
 
 document.getElementById('toBottomRight')
   .addEventListener('click', () => {
-    store.dispatch(changeDirection('bottomRight'));
+    store.dispatch(changeDirection('135deg'));
   });
