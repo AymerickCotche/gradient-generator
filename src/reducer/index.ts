@@ -1,3 +1,9 @@
+import {
+  RANDOM_FIRST_COLOR,
+  RANDOM_LAST_COLOR,
+  CHANGE_DIRECTION
+} from 'src/actions'
+
 interface CounterState {
   firstColor: string,
   lastColor: string,
@@ -21,11 +27,11 @@ const reducer = (
   },
 ) => {
   switch (action.type) {
-    case 'CHANGE_DIRECTION':
+    case CHANGE_DIRECTION:
       return { ...state, direction: action.direction };
-    case 'RANDOM_FIRST_COLOR':
+    case RANDOM_FIRST_COLOR:
       return { ...state, firstColor: action.newFirstColor, nbColors: state.nbColors + 1 };
-    case 'RANDOM_LAST_COLOR':
+    case RANDOM_LAST_COLOR:
       return { ...state, lastColor: action.newLastColor, nbColors: state.nbColors + 1 };
     default:
       return state;
