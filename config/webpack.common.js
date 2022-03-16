@@ -14,7 +14,7 @@ module.exports = {
     // SCSS
     paths.src + '/styles/index.scss',
     // TSX
-    paths.src + '/index.ts',
+    paths.src + '/index.tsx',
   ],
   output: {
     path: paths.build,

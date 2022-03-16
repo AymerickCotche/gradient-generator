@@ -3,11 +3,9 @@ import * as React from 'react';
 import './styles.css';
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <h1>Composant : App</h1>
-  </div>
+const BtnGroup = () => (
+  <div className="buttons group" />
 );
 
 // == Export
-export default App;
+export default BtnGroup;
