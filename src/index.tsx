@@ -4,6 +4,10 @@ import { render } from 'react-dom';
 import App from 'src/components/App';
 
 const rootElement = document.getElementById('root');
-const rootReactElement = <App />;
+const rootReactElement = (
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 render(rootReactElement, rootElement);

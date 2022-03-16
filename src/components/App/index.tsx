@@ -1,11 +1,20 @@
 // == Import
 import * as React from 'react';
-import './styles.css';
+import './styles.scss';
+import NbColors from 'src/components/NbColors';
+import RandomButtons from 'src/components/RandomButtons';
+import Gradient from '../Gradient';
+import Colors from '../Colors';
+import DirectionButtons from '../DirectionButtons';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <h1>Composant : App</h1>
+    <NbColors />
+    <RandomButtons />
+    <Colors />
+    <Gradient />
+    <DirectionButtons />
   </div>
 );
 
