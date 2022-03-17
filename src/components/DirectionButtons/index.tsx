@@ -3,7 +3,7 @@ import * as React from 'react';
 import Button from '../Button';
 
 // == Composant
-const RandomButtons = () => (
+const DirectionButtons = () => (
   <div className="buttons group">
     <Button text="to left" />
     <Button text="to right" />
@@ -16,4 +16,4 @@ const RandomButtons = () => (
 );
 
 // == Export
-export default RandomButtons;
+export default DirectionButtons;
