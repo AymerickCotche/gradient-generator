@@ -13,6 +13,10 @@ const RandomButtons = () => {
   const handleRandomLast = () => {
     dispatch(randLast());
   };
+  const handleRandomAll = () => {
+    handleRandomFirst();
+    handleRandomLast();
+  };
   return (
     <div className="buttons group">
       <button
@@ -27,10 +31,7 @@ const RandomButtons = () => {
         type="button"
         className="button"
         id="randAll"
-        onClick={() => {
-          handleRandomFirst();
-          handleRandomLast();
-        }}
+        onClick={handleRandomAll}
       >
         Random All
       </button>
